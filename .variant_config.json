@@ -1,0 +1,114 @@
+{
+  "student_id": "design",
+  "lab": "lab04-oop-design",
+  "shape_tests": {
+    "circle": {
+      "radius": 10.86,
+      "expected_area": 370.5182,
+      "expected_perimeter": 68.2354
+    },
+    "rectangle": {
+      "width": 6.9,
+      "height": 9.28,
+      "expected_area": 64.032,
+      "expected_perimeter": 32.36
+    },
+    "square": {
+      "side": 7.21,
+      "expected_area": 51.9841,
+      "expected_perimeter": 28.84
+    },
+    "triangle": {
+      "side_a": 7.27,
+      "side_b": 7.16,
+      "side_c": 5.35,
+      "expected_area": 17.9208,
+      "expected_perimeter": 19.78
+    }
+  },
+  "payment_tests": {
+    "amounts": [
+      62.59,
+      88.82,
+      724.71
+    ],
+    "credit_card_fee_percent": 2.6,
+    "paypal_fee_percent": 3.0,
+    "crypto_discount_percent": 3.5,
+    "expected_credit_card": [
+      64.22,
+      91.13,
+      743.55
+    ],
+    "expected_paypal": [
+      64.47,
+      91.48,
+      746.45
+    ],
+    "expected_crypto": [
+      60.4,
+      85.71,
+      699.35
+    ]
+  },
+  "observer_tests": {
+    "event_types": [
+      "data_update",
+      "notification",
+      "warning",
+      "click"
+    ],
+    "emit_counts": [
+      3,
+      2,
+      3
+    ],
+    "test_payloads": [
+      {
+        "id": 102,
+        "message": "test_design"
+      },
+      {
+        "value": 91.85,
+        "active": true
+      }
+    ]
+  },
+  "composition_tests": {
+    "vehicle_types": [
+      "Car",
+      "Boat",
+      "Plane"
+    ],
+    "features": [
+      "Engine",
+      "Wheels",
+      "Wings",
+      "Propeller"
+    ],
+    "test_combinations": [
+      {
+        "vehicle": "Car",
+        "features": [
+          "Engine",
+          "Wheels"
+        ]
+      },
+      {
+        "vehicle": "Boat",
+        "features": [
+          "Engine",
+          "Propeller"
+        ]
+      },
+      {
+        "vehicle": "Plane",
+        "features": [
+          "Engine",
+          "Wings"
+        ]
+      }
+    ]
+  },
+  "generated_at": "2026-02-09T20:26:58.153800+00:00"
+}
