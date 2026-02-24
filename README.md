@@ -64,6 +64,8 @@ This assignment uses a **variant system** to provide each student with unique te
 
 ### Running Tests
 
+> **Note:** Testing is local-only. There is no automatic test feedback on push. You must run the tests yourself before submitting.
+
 ```bash
 # Run all visible tests
 pytest tests/visible/ -v
@@ -91,7 +93,6 @@ python scripts/generate_assignment.py
 csc3301-lab04-oop-design/
 ├── .github/
 │   └── workflows/
-│       ├── autograding.yml      # Runs tests on push
 │       └── generate-variant.yml # Generates variant on repo creation
 ├── scripts/
 │   ├── variant_generator.py     # Generates .variant_config.json
@@ -118,9 +119,8 @@ csc3301-lab04-oop-design/
 ## Submission
 
 1. Complete all tasks in the `src/` directory
-2. Ensure all tests pass locally
-3. Commit and push your changes
-4. Verify GitHub Actions shows all tests passing
+2. Run all tests locally and ensure they pass: `pytest tests/visible/ -v`
+3. Commit and push your changes before the deadline
 
 ## Academic Integrity
 
