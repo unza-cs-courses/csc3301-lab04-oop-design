@@ -44,11 +44,18 @@ class TestShapes:
 
 class TestPaymentStrategy:
     def test_payment_strategy_abc_enforcement(self):
-        """PaymentStrategy should not be instantiable."""
+        """PaymentStrategy should not be instantiable, and concrete strategies must work."""
         try:
-            from src.task2_payment import PaymentStrategy
+            from src.task2_payment import PaymentStrategy, CreditCardPayment
             with pytest.raises(TypeError):
                 PaymentStrategy()
+
+            # Verify a concrete strategy actually processes payments (not just a stub)
+            strategy = CreditCardPayment(2.5)
+            result = strategy.process_payment(100.0)
+            assert result is not None, "process_payment should return a value"
+            assert isinstance(result, (int, float)), "process_payment should return a number"
+            assert result != 0, "process_payment should return a non-zero amount"
         except ImportError:
             pytest.skip("task2_payment not yet implemented")
 
@@ -162,6 +169,19 @@ class TestObserver:
         try:
             from src.task4_observer import EventEmitter
             emitter = EventEmitter()
+
+            # First verify that on/emit actually works before testing off
+            pre_results = []
+
+            def pre_callback(value):
+                pre_results.append(value)
+
+            emitter.on("pre_test", pre_callback)
+            emitter.emit("pre_test", 99)
+            assert pre_results == [99], \
+                "on/emit must work before testing off"
+
+            # Now test that off actually removes the callback
             results = []
 
             def callback(value):
